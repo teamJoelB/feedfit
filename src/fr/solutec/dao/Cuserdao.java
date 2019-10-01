@@ -44,4 +44,24 @@ public class Cuserdao {
         return resultat;
     }
     
+    public static void insertUser(Cuser user) throws SQLException {
+        // Fonction pour ajouter un utilisateur
+        
+        Connection connection = Caccesdao.getConnection();
+        String sql = "INSERT INTO User (nomuser, prenomuser, pseudouser, mailuser, mdpuser, poidsuser, tailleuser, ageuser, sexeuser) values (?,?,?,?,?,?,?,?,?)";
+        PreparedStatement requete = connection.prepareStatement(sql);
+        requete.setString(1, user.getNomUser());
+        requete.setString(2, user.getPrenomUser());
+        requete.setString(3, user.getPseudoUser());
+        requete.setString(4, user.getMailUser());
+        requete.setString(5, user.getMdpUser());
+        requete.setFloat(6, user.getPoidsUser());
+        requete.setFloat(7, user.getTailleUser());
+        requete.setFloat(8, user.getAgeUser());
+        requete.setString(9, user.getSexeUser());
+        requete.execute(); 
+    }
+    
+    
+    
 }
