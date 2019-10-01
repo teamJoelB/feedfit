@@ -5,6 +5,8 @@
  */
 package fr.solutec.controller;
 
+import fr.solutec.ihm.Mconnexion;
+
 /**
  *
  * @author esic
@@ -12,5 +14,7 @@ package fr.solutec.controller;
 public class Cprogramme {
     public static void main(String[] args) {
         // TODO code application logic here
+        Mconnexion m = new Mconnexion();
+        m.setVisible(true);
     }
 }
