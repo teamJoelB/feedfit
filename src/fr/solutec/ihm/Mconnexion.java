@@ -5,6 +5,10 @@
  */
 package fr.solutec.ihm;
 
+import fr.solutec.dao.Cuserdao;
+import fr.solutec.model.Cuser;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author esic
@@ -14,8 +18,11 @@ public class Mconnexion extends javax.swing.JFrame {
     /**
      * Creates new form Mconnexion
      */
+    
+    
     public Mconnexion() {
         initComponents();
+        this.getRootPane().setDefaultButton(bConnexion);
     }
 
     /**
@@ -154,7 +161,23 @@ public class Mconnexion extends javax.swing.JFrame {
     }//GEN-LAST:event_bInscriptionActionPerformed
 
     private void bConnexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bConnexionActionPerformed
-        // TODO add your handling code here:
+
+        try {
+            Cuser currentUser = Cuserdao.getByPseudoPass(tfIdentifiant.getText(), tfMDP.getText());
+            
+            if(currentUser!=null){
+                JOptionPane.showMessageDialog(rootPane, "Connection OK.");
+                Mprincipal mprincipal = new Mprincipal(currentUser);
+                mprincipal.setVisible(true);
+                this.setVisible(false);
+            }
+            else{
+                JOptionPane.showMessageDialog(rootPane, "Connection not OK.");
+            }
+                        
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, "Erreur de connexion : " + e.getMessage());
+        }
     }//GEN-LAST:event_bConnexionActionPerformed
 
     /**

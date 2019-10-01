@@ -22,6 +22,7 @@ public class Minscription extends javax.swing.JFrame {
      */
     public Minscription() {
         initComponents();
+        this.getRootPane().setDefaultButton(bInscription);
     }
 
     /**
