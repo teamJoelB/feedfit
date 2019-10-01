@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fr.solutec.dao;
+package fr.solutec.model;
 
 /**
  *
  * @author esic
  */
-public class UserDAO {
+public class Cobjectif {
     
 }

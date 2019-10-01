@@ -9,6 +9,6 @@ package fr.solutec.model;
  *
  * @author esic
  */
-public class User {
+public class Chistorique {
     
 }
