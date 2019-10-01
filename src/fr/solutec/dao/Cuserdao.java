@@ -7,6 +7,7 @@ package fr.solutec.dao;
 
 import fr.solutec.model.*;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -115,4 +116,32 @@ public class Cuserdao {
         
         requete.execute();
     }
+    
+        public static void insertTache(Cuser user, Date datedeb, Date datefin, boolean HQ, boolean AO, String typretache, float valeur) throws SQLException {
+        // Fonction pour ajouter une tache
+        
+        int idType = 0;
+        Connection connection = Caccesdao.getConnection();
+               
+        String sqltype = "SELECT idtype FROM Type WHERE typetache = ?";
+        PreparedStatement requetetype = connection.prepareStatement(sqltype);
+        ResultSet rs = requetetype.executeQuery(sqltype);
+        if (rs.next()){
+            idType = rs.getInt("idtype");
+        }
+        
+        String sql = "INSERT INTO Tache (datedeb, datefin, hq, ao, idtype, valtache, iduser) values (?,?,?,?,?,?,?)";
+        PreparedStatement requete = connection.prepareStatement(sql);
+        
+        requete.setDate(1, datedeb);
+        requete.setDate(2, datefin);
+        requete.setBoolean(3, HQ);
+        requete.setBoolean(4, AO);
+        requete.setInt(5, idType);
+        requete.setFloat(6, valeur);
+        requete.setInt(6, user.getIdUser());
+       
+        requete.execute(); 
+    }
+    
 }
