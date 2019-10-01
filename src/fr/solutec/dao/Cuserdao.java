@@ -62,6 +62,57 @@ public class Cuserdao {
         requete.execute(); 
     }
     
-    
-    
+    public static void majUser(Cuser user, String nom, String prenom, String mail, String mdp, float taille, float age, String sexe) throws SQLException {
+        // Fonction pour mettre à jour un utilisateur 
+        
+        Connection connection = Caccesdao.getConnection();
+        String SQL = "UPDATE user SET nomuser = ?, prenomuser = ?, mailuser = ?, mdpuser = ?, tailleuser = ?, ageuser = ?, sexeuser = ? WHERE iduser = ?";
+        PreparedStatement requete = connection.prepareStatement(SQL);
+        
+        if (!nom.equals(null)) {
+            requete.setString(1, nom);
+        }
+        else {
+            requete.setString(1, user.getNomUser());
+        }
+        if (!prenom.equals(null)) {
+            requete.setString(2, prenom);
+        }
+        else {
+            requete.setString(1, user.getPrenomUser());
+        }
+        if (!mail.equals(null)) {
+            requete.setString(3, mail);
+        }
+        else {
+            requete.setString(1, user.getMailUser());
+        }
+        if (!mdp.equals(null)) {
+            requete.setString(4, mdp);
+        }
+        else {
+            requete.setString(1, user.getMdpUser());
+        }
+        if (taille == 0.0) { 
+            requete.setFloat(5, user.getTailleUser());
+        }
+        else {
+            requete.setFloat(5, taille);
+        }
+        if (age == 0.0) {
+            requete.setFloat(6, user.getAgeUser());
+        }
+        else {
+            requete.setFloat(6, age);
+        }
+        if (!sexe.equals(null)) {
+            requete.setString(7, sexe);
+        }
+        else{
+            requete.setString(7, user.getSexeUser());
+        }
+        requete.setInt(8, user.getIdUser());
+        
+        requete.execute();
+    }
 }
