@@ -6,6 +6,7 @@
 package fr.solutec.ihm;
 
 import fr.solutec.model.Chistorique;
+import fr.solutec.model.Cuser;
 
 /**
  *
@@ -13,11 +14,14 @@ import fr.solutec.model.Chistorique;
  */
 public class Mprincipal extends javax.swing.JFrame {
 
+    
+    private static Cuser currentUser;
     /**
      * Creates new form Mprincipal
      */
-    public Mprincipal() {
+    public Mprincipal(Cuser currentUser) {
         initComponents();
+        this.currentUser = currentUser;
     }
 
     /**
@@ -32,20 +36,25 @@ public class Mprincipal extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        lBienvenue = new javax.swing.JLabel();
         bDeconnexion = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fr/solutec/ihm/stats.png"))); // NOI18N
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 102));
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Bonjour ...");
+        lBienvenue.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lBienvenue.setForeground(new java.awt.Color(255, 255, 255));
+        lBienvenue.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lBienvenue.setText("Bonjour ...");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -53,14 +62,14 @@ public class Mprincipal extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 565, Short.MAX_VALUE)
+                .addComponent(lBienvenue, javax.swing.GroupLayout.DEFAULT_SIZE, 565, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(27, 27, 27)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lBienvenue, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -128,6 +137,11 @@ public class Mprincipal extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_bDeconnexionActionPerformed
 
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        lBienvenue.setText("Bienvenue dans votre espace, " + currentUser.getNomUser());
+        
+    }//GEN-LAST:event_formWindowOpened
+
     /**
      * @param args the command line arguments
      */
@@ -158,17 +172,17 @@ public class Mprincipal extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Mprincipal().setVisible(true);
+                new Mprincipal(currentUser).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bDeconnexion;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel lBienvenue;
     // End of variables declaration//GEN-END:variables
 }
