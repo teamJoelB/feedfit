@@ -101,7 +101,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `iduser` int(11) NOT NULL AUTO_INCREMENT,
   `nomuser` varchar(40) NOT NULL,
   `prenomuser` varchar(40) NOT NULL,
-  `pseudouser` varchar(40) NOT NULL,
+  `pseudouser` varchar(40) NOT NULL UNIQUE,
   `mailuser` varchar(100) NOT NULL,
   `mdpuser` varchar(40) NOT NULL,
   `poidsuser` float DEFAULT NULL,
@@ -117,7 +117,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 INSERT INTO `user` (`iduser`, `nomuser`, `prenomuser`, `pseudouser`, `mailuser`, `mdpuser`, `poidsuser`, `tailleuser`, `ageuser`, `sexeuser`) VALUES
 (1, 'Rocha', 'Claudio', 'crocha', 'crocha@test.com', 'test', 65, 1.78, 24, 'H'),
-(2, 'Rocha', 'Claudio', 'crocha', 'crocha@test.com', 'test', 65, 1.78, 24, 'H');
+(2, 'Garderes', 'Louis', 'lgarderes', 'lgarderes@test.com', 'test', 68, 1.75, 23, 'H');
 
 --
 -- Contraintes pour les tables déchargées

@@ -18,6 +18,7 @@ import java.sql.SQLException;
 public class Cuserdao {
     
     public static Cuser getByPseudoPass(String pseudoUser, String mdpUser)throws SQLException {
+        // fonction de récupération d'un user dans la bd à partir de son pseudo et mdp
         Cuser resultat = null;
         
         Connection connection = Caccesdao.getConnection();
@@ -42,4 +43,5 @@ public class Cuserdao {
         }
         return resultat;
     }
+    
 }
