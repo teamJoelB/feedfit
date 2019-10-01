@@ -203,9 +203,8 @@ public class Minscription extends javax.swing.JFrame {
             tfMDP.setBorder(BorderFactory.createLineBorder(RED));
             JOptionPane.showMessageDialog(rootPane, "Veuillez compléter les champs vides.");
             
-            
-            
         }
+        
         
     }//GEN-LAST:event_bInscriptionActionPerformed
 

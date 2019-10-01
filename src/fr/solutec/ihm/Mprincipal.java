@@ -7,6 +7,7 @@ package fr.solutec.ihm;
 
 import fr.solutec.model.Chistorique;
 import fr.solutec.model.Cuser;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -39,6 +40,7 @@ public class Mprincipal extends javax.swing.JFrame {
         lBienvenue = new javax.swing.JLabel();
         bDeconnexion = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        bProfil = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -54,7 +56,7 @@ public class Mprincipal extends javax.swing.JFrame {
         lBienvenue.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         lBienvenue.setForeground(new java.awt.Color(255, 255, 255));
         lBienvenue.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lBienvenue.setText("Bonjour ...");
+        lBienvenue.setText("Bienvenue dans votre espace, *******");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -82,6 +84,13 @@ public class Mprincipal extends javax.swing.JFrame {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fr/solutec/ihm/haltere.png"))); // NOI18N
 
+        bProfil.setText("Modifier profil");
+        bProfil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bProfilActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -95,6 +104,8 @@ public class Mprincipal extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(173, 173, 173)
                 .addComponent(bDeconnexion)
+                .addGap(149, 149, 149)
+                .addComponent(bProfil)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -106,7 +117,9 @@ public class Mprincipal extends javax.swing.JFrame {
                         .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 320, Short.MAX_VALUE)
-                .addComponent(bDeconnexion)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bDeconnexion)
+                    .addComponent(bProfil))
                 .addGap(73, 73, 73))
         );
 
@@ -132,15 +145,22 @@ public class Mprincipal extends javax.swing.JFrame {
 
     private void bDeconnexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDeconnexionActionPerformed
         Chistorique.getUnique().ajoutLog("Déconnexion");
+        JOptionPane.showMessageDialog(rootPane, "Déconnexion...");
+        this.setVisible(false);
         Mconnexion m = new Mconnexion();
         m.setVisible(true);
-        this.setVisible(false);
     }//GEN-LAST:event_bDeconnexionActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        lBienvenue.setText("Bienvenue dans votre espace, " + currentUser.getNomUser());
+        lBienvenue.setText("Bienvenue dans votre espace, " + currentUser.getPrenomUser());
         
     }//GEN-LAST:event_formWindowOpened
+
+    private void bProfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bProfilActionPerformed
+        Mprofil mprofil = new Mprofil(currentUser);
+        mprofil.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_bProfilActionPerformed
 
     /**
      * @param args the command line arguments
@@ -179,6 +199,7 @@ public class Mprincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bDeconnexion;
+    private javax.swing.JButton bProfil;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
