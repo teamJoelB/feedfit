@@ -3,19 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package feedfit;
+package fr.solutec.controller;
+
+import fr.solutec.ihm.Mconnexion;
 
 /**
  *
  * @author esic
  */
-public class FeedFit {
-
-    /**
-     * @param args the command line arguments
-     */
+public class Cprogramme {
     public static void main(String[] args) {
         // TODO code application logic here
+        Mconnexion m = new Mconnexion();
+        m.setVisible(true);
     }
-    
 }
