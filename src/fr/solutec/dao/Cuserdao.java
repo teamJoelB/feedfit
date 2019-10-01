@@ -35,8 +35,8 @@ public class Cuserdao {
             resultat.setPrenomUser(rs.getString("prenomuser"));
             resultat.setPseudoUser(rs.getString("pseudouser"));
             resultat.setMailUser(rs.getString("mailuser"));
-            resultat.setPoidsUser(rs.getInt("poidsuser"));
-            resultat.setTailleUser(rs.getInt("tailleuser"));
+            resultat.setPoidsUser(rs.getFloat("poidsuser"));
+            resultat.setTailleUser(rs.getFloat("tailleuser"));
             resultat.setAgeUser(rs.getInt("ageuser"));
             resultat.setSexeUser(rs.getString("sexeuser"));
         }
