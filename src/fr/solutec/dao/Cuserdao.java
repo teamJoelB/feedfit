@@ -7,6 +7,7 @@ package fr.solutec.dao;
 
 import fr.solutec.model.*;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -62,6 +63,85 @@ public class Cuserdao {
         requete.execute(); 
     }
     
+    public static void majUser(Cuser user, String nom, String prenom, String mail, String mdp, float taille, float age, String sexe) throws SQLException {
+        // Fonction pour mettre à jour un utilisateur 
+        
+        Connection connection = Caccesdao.getConnection();
+        String SQL = "UPDATE user SET nomuser = ?, prenomuser = ?, mailuser = ?, mdpuser = ?, tailleuser = ?, ageuser = ?, sexeuser = ? WHERE iduser = ?";
+        PreparedStatement requete = connection.prepareStatement(SQL);
+        
+        if (!nom.equals(null)) {
+            requete.setString(1, nom);
+        }
+        else {
+            requete.setString(1, user.getNomUser());
+        }
+        if (!prenom.equals(null)) {
+            requete.setString(2, prenom);
+        }
+        else {
+            requete.setString(1, user.getPrenomUser());
+        }
+        if (!mail.equals(null)) {
+            requete.setString(3, mail);
+        }
+        else {
+            requete.setString(1, user.getMailUser());
+        }
+        if (!mdp.equals(null)) {
+            requete.setString(4, mdp);
+        }
+        else {
+            requete.setString(1, user.getMdpUser());
+        }
+        if (taille == 0.0) { 
+            requete.setFloat(5, user.getTailleUser());
+        }
+        else {
+            requete.setFloat(5, taille);
+        }
+        if (age == 0.0) {
+            requete.setFloat(6, user.getAgeUser());
+        }
+        else {
+            requete.setFloat(6, age);
+        }
+        if (!sexe.equals(null)) {
+            requete.setString(7, sexe);
+        }
+        else{
+            requete.setString(7, user.getSexeUser());
+        }
+        requete.setInt(8, user.getIdUser());
+        
+        requete.execute();
+    }
     
+        public static void insertTache(Cuser user, Date datedeb, Date datefin, boolean HQ, boolean AO, String typretache, float valeur) throws SQLException {
+        // Fonction pour ajouter une tache
+        
+        int idType = 0;
+        Connection connection = Caccesdao.getConnection();
+               
+        String sqltype = "SELECT idtype FROM Type WHERE typetache = ?";
+        PreparedStatement requetetype = connection.prepareStatement(sqltype);
+        ResultSet rs = requetetype.executeQuery(sqltype);
+        if (rs.next()){
+            idType = rs.getInt("idtype");
+        }
+        
+        String sql = "INSERT INTO Tache (datedeb, datefin, hq, ao, idtype, valtache, iduser) values (?,?,?,?,?,?,?)";
+        PreparedStatement requete = connection.prepareStatement(sql);
+        
+        requete.setDate(1, datedeb);
+        requete.setDate(2, datefin);
+        requete.setBoolean(3, HQ);
+        requete.setBoolean(4, AO);
+        requete.setInt(5, idType);
+        requete.setFloat(6, valeur);
+        requete.setInt(6, user.getIdUser());
+       
+        requete.execute(); 
+    }
     
 }
