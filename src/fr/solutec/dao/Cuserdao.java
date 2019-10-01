@@ -5,6 +5,7 @@
  */
 package fr.solutec.dao;
 
+import fr.solutec.model.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -23,21 +24,21 @@ public class Cuserdao {
         
         String sql = "SELECT * FROM User WHERE  pseudouser = ? AND mdpuser = ?";
         PreparedStatement requete = connection.prepareStatement(sql);
-        requete.setString(1, pseudouser);
-        requete.setString(2, mdpuser);
+        requete.setString(1, pseudoUser);
+        requete.setString(2, mdpUser);
         ResultSet rs = requete.executeQuery();
         
         if (rs.next()) {
             resultat = new Cuser();
             resultat.setIdUser(rs.getInt("iduser"));
-            resultat.setNomUser(rs.getInt("nomuser"));
-            resultat.setPrenomUser(rs.getInt("prenomuser"));
-            resultat.setPseudoUser(rs.getInt("pseudouser"));
-            resultat.setMailUser(rs.getInt("mailuser"));
+            resultat.setNomUser(rs.getString("nomuser"));
+            resultat.setPrenomUser(rs.getString("prenomuser"));
+            resultat.setPseudoUser(rs.getString("pseudouser"));
+            resultat.setMailUser(rs.getString("mailuser"));
             resultat.setPoidsUser(rs.getInt("poidsuser"));
             resultat.setTailleUser(rs.getInt("tailleuser"));
             resultat.setAgeUser(rs.getInt("ageuser"));
-            resultat.setSexeUser(rs.getInt("sexeuser"));
+            resultat.setSexeUser(rs.getString("sexeuser"));
         }
         return resultat;
     }
