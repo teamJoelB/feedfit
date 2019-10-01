@@ -6,6 +6,7 @@
 package fr.solutec.ihm;
 
 import fr.solutec.model.Cuser;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -104,6 +105,11 @@ public class Mprofil extends javax.swing.JFrame {
         cbSexe.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Autre", "Masculin", "Féminin" }));
 
         jButton1.setText("Enregistrer");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("< Revenir au Menu Principal");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -243,6 +249,40 @@ public class Mprofil extends javax.swing.JFrame {
     private void tfPrenomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfPrenomActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfPrenomActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+        try {
+            if(){
+                
+
+            }
+            else{
+
+                currentUser.setNomUser(tfNom.getText());
+                currentUser.setPrenomUser(tfPrenom.getText());
+                currentUser.setMailUser(tfMail.getText());
+                currentUser.setMdpUser(tfMDP.getText());
+                currentUser.setSexeUser(String.valueOf(cbSexe.getSelectedItem()));
+                currentUser.setAgeUser(Float.parseFloat(tfAge.getText()));
+                currentUser.setPoidsUser(Float.parseFloat(tfPoids.getText()));
+                currentUser.setTailleUser(Float.parseFloat(tfTaille.getText()));
+                Cuserdao.insertUser(currentUser);
+                JOptionPane.showMessageDialog(rootPane, "Utilisateur créé !");
+                Mprincipal mprincipal = new Mprincipal(currentUser);
+                mprincipal.setVisible(true);
+                this.setVisible(false);
+            }
+            
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, "Erreur. " + e.getMessage());
+        }
+                
+                
+        
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
