@@ -96,11 +96,5 @@ public class Cuser {
     public void setSexeUser(String sexeUser) {
         this.sexeUser = sexeUser;
     }
-    
-    
-    
-    
-    
-    
-    
+
 }
