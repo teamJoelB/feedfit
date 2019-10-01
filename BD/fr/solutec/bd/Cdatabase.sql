@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 01 oct. 2019 à 11:44
+-- Généré le :  mar. 01 oct. 2019 à 15:25
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -53,7 +53,6 @@ CREATE TABLE IF NOT EXISTS `tache` (
   `idtype` int(11) NOT NULL,
   `datedeb` date NOT NULL,
   `datefin` date NOT NULL,
-  `hq` tinyint(1) DEFAULT NULL,
   `ao` tinyint(1) DEFAULT NULL,
   `valtache` float DEFAULT NULL,
   PRIMARY KEY (`idtache`),
@@ -65,9 +64,9 @@ CREATE TABLE IF NOT EXISTS `tache` (
 -- Déchargement des données de la table `tache`
 --
 
-INSERT INTO `tache` (`idtache`, `iduser`, `idtype`, `datedeb`, `datefin`, `hq`, `ao`, `valtache`) VALUES
-(1, 1, 1, '2019-10-01', '2019-10-01', 0, 1, 10),
-(2, 2, 2, '2019-10-02', '2019-10-09', 1, 0, 15);
+INSERT INTO `tache` (`idtache`, `iduser`, `idtype`, `datedeb`, `datefin`, `ao`, `valtache`) VALUES
+(1, 1, 1, '2019-10-01', '2019-10-01', 1, 10),
+(2, 2, 2, '2019-10-02', '2019-10-09', 0, 15);
 
 -- --------------------------------------------------------
 
@@ -101,7 +100,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `iduser` int(11) NOT NULL AUTO_INCREMENT,
   `nomuser` varchar(40) NOT NULL,
   `prenomuser` varchar(40) NOT NULL,
-  `pseudouser` varchar(40) NOT NULL UNIQUE,
+  `pseudouser` varchar(40) NOT NULL,
   `mailuser` varchar(100) NOT NULL,
   `mdpuser` varchar(40) NOT NULL,
   `poidsuser` float DEFAULT NULL,
@@ -117,7 +116,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 INSERT INTO `user` (`iduser`, `nomuser`, `prenomuser`, `pseudouser`, `mailuser`, `mdpuser`, `poidsuser`, `tailleuser`, `ageuser`, `sexeuser`) VALUES
 (1, 'Rocha', 'Claudio', 'crocha', 'crocha@test.com', 'test', 65, 1.78, 24, 'H'),
-(2, 'Garderes', 'Louis', 'lgarderes', 'lgarderes@test.com', 'test', 68, 1.75, 23, 'H');
+(2, 'Rocha', 'Claudio', 'crocha', 'crocha@test.com', 'test', 65, 1.78, 24, 'H');
 
 --
 -- Contraintes pour les tables déchargées
