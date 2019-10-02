@@ -175,7 +175,7 @@ public class Cuserdao {
         //Récupère les objectifs de l'user en argument de la semaine de la date en argument
         
         List<Ctache> result = new ArrayList<>();
-        String sql = "SELECT * FROM tache WHERE datedeb < ? < datefin  AND ao = false";
+        String sql = "SELECT * FROM tache WHERE datedeb < ? < datefin  AND ao = false AND datedeb <> datefin";
         Connection connection = Caccesdao.getConnection();
         PreparedStatement requete = connection.prepareStatement(sql);
         
@@ -275,7 +275,7 @@ public class Cuserdao {
     public static List<Cpoids> getAllPoids(Cuser user, Date day) throws SQLException {
 
         List<Cpoids> result = new ArrayList<>();
-        String sql = "SELECT * FROM Poids WHERE datepoids < ? AND iduser = ?";
+        String sql = "SELECT * FROM Poids WHERE datepoids <= ? AND iduser = ?";
         Connection connection = Caccesdao.getConnection();
         PreparedStatement requete = connection.prepareStatement(sql);
         
