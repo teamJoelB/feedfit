@@ -255,7 +255,23 @@ public class Cuserdao {
 
         requete.execute(); 
     }
+    
+    public static float getpoids(Cuser user) throws SQLException {
         
+        Connection connection = Caccesdao.getConnection();
+        String sql = "SELECT poidsuser FROM User WHERE iduser = ?";
+        PreparedStatement requete = connection.prepareStatement(sql);
+        float pds = 0;
+        
+        requete.setInt(1, user.getIdUser());
+        ResultSet rs = requete.executeQuery();
+        
+        if (rs.next()){
+            pds = rs.getFloat("userpoids");
+        }
+        return pds;
+    }
+
     public static String getTypeTache(Ctache tache) throws SQLException {
         // Récupère le type de tache de la tache
         
