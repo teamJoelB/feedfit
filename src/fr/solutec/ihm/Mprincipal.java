@@ -9,10 +9,11 @@ import fr.solutec.dao.Cuserdao;
 import fr.solutec.model.Chistorique;
 import fr.solutec.model.Ctache;
 import fr.solutec.model.Cuser;
-import java.text.DateFormat;
-import javax.swing.JOptionPane;
+
+import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Locale;
+
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -20,13 +21,15 @@ import java.util.Locale;
  */
 public class Mprincipal extends javax.swing.JFrame {
 
-    Date date1 = new Date();
-
+    Date todayDate = new Date();
+    SimpleDateFormat simpleDate = new SimpleDateFormat("yyyy-MM-dd");
+    
+    
+    
           
     private static Cuser currentUser;
-    /**
-     * Creates new form Mprincipal
-     */
+
+    
     public Mprincipal(Cuser currentUser) {
         initComponents();
         this.currentUser = currentUser;
@@ -55,6 +58,8 @@ public class Mprincipal extends javax.swing.JFrame {
         bProfil = new javax.swing.JButton();
         bDeconnexion = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        lDerniereCo = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         bAjouter2 = new javax.swing.JButton();
@@ -117,7 +122,7 @@ public class Mprincipal extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(12, 12, 12)
-                .addComponent(tfDateNow, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tfDateNow, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -165,6 +170,17 @@ public class Mprincipal extends javax.swing.JFrame {
         });
 
         jButton4.setText("Aide ?");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("Dernière connexion :");
+
+        lDerniereCo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lDerniereCo.setText("*** date ***");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -173,9 +189,11 @@ public class Mprincipal extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(bDeconnexion, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
+                    .addComponent(lDerniereCo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(bDeconnexion, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
                     .addComponent(bProfil, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -186,6 +204,10 @@ public class Mprincipal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lDerniereCo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(bDeconnexion)
                 .addContainerGap())
         );
@@ -437,7 +459,7 @@ public class Mprincipal extends javax.swing.JFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
+                        .addGap(21, 21, 21)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
@@ -472,7 +494,7 @@ public class Mprincipal extends javax.swing.JFrame {
                                         .addGap(0, 8, Short.MAX_VALUE))))
                             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 846, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(73, 73, 73)
+                        .addGap(88, 88, 88)
                         .addComponent(txtTaches1, javax.swing.GroupLayout.PREFERRED_SIZE, 629, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
@@ -544,7 +566,14 @@ public class Mprincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bDeconnexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDeconnexionActionPerformed
-        Chistorique.getUnique().ajoutLog("Déconnexion");
+        // Chistorique.getUnique().ajoutLog("Déconnexion");
+        try {
+            Cuserdao.insertDateConnect(currentUser);
+        } catch (Exception e) {
+            
+        }
+        
+        
         JOptionPane.showMessageDialog(rootPane, "Déconnexion...");
         this.setVisible(false);
         Mconnexion m = new Mconnexion();
@@ -556,13 +585,20 @@ public class Mprincipal extends javax.swing.JFrame {
         panel1.setVisible(false);
         panel2.setVisible(false);
         panel3.setVisible(false);
-        tfDateNow.setText(String.valueOf(date1));
+        tfDateNow.setText(simpleDate.format(todayDate));
+        try {
+            lDerniereCo.setText(Cuserdao.getDateConnect(currentUser));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, "Erreur dernière connexion : " + e.getMessage());
+        }
         
         try {
-            java.sql.Date sqlDate = java.sql.Date.valueOf( tfDateNow.getText() );
+            
+            java.sql.Date sqlDate = java.sql.Date.valueOf(tfDateNow.getText());
             txtTaches1.setText(Ctache.infoTache(Cuserdao.getActionDay(currentUser, sqlDate)));
             
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, "Erreur Date : " + e.getMessage());
         }
     }//GEN-LAST:event_formWindowOpened
 
@@ -642,6 +678,12 @@ public class Mprincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tfDateNowActionPerformed
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        Maide maide = new Maide(currentUser);
+        maide.setVisible(true);
+        
+    }//GEN-LAST:event_jButton4ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -696,12 +738,14 @@ public class Mprincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JLabel lBienvenue;
+    private javax.swing.JLabel lDerniereCo;
     private javax.swing.JLabel lTypeAction1;
     private javax.swing.JLabel lTypeAction2;
     private javax.swing.JLabel lTypeAction3;
