@@ -312,4 +312,15 @@ public class Cuserdao {
         }              
         return date;
     }
+    
+    public static void setHelpUserFalse(Cuser user) throws SQLException {
+        
+        Connection connection = Caccesdao.getConnection();
+        String sql = "UPDATE User SET helpuser = false WHERE iduser = ?";
+        PreparedStatement requete = connection.prepareStatement(sql);
+
+        requete.setInt(2, user.getIdUser());
+        requete.execute(); 
+        
+    }
 }
