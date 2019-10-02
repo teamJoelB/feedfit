@@ -114,7 +114,7 @@ public class Cuserdao {
         else {
             requete.setFloat(6, age);
         }
-        requete.setString(7, user.getSexeUser());
+        requete.setString(7, sexe);
         requete.setInt(8, user.getIdUser());
         
         requete.execute();
@@ -271,6 +271,27 @@ public class Cuserdao {
         }
         return pds;
     }
+    
+    public static List<Cpoids> getAllPoids(Cuser user, Date day) throws SQLException {
+
+        List<Cpoids> result = new ArrayList<>();
+        String sql = "SELECT * FROM Poids WHERE datepoids < ? AND iduser = ?";
+        Connection connection = Caccesdao.getConnection();
+        PreparedStatement requete = connection.prepareStatement(sql);
+        
+        requete.setInt(1, user.getIdUser());
+        requete.setDate(2, day);
+        ResultSet rs = requete.executeQuery();
+
+        while (rs.next()){
+            Cpoids p = new Cpoids();
+            p.setDatePoids(rs.getDate("datepoids"));
+            p.setIdUser(user.getIdUser());
+            p.setValPoids(rs.getFloat("valpoids"));
+            result.add(p);
+        }
+        return result;        
+    }
 
     public static String getTypeTache(Ctache tache) throws SQLException {
         // Récupère le type de tache de la tache
@@ -300,9 +321,7 @@ public class Cuserdao {
         java.util.Date todayDate = new java.util.Date();
         SimpleDateFormat simpleDate = new SimpleDateFormat("yyyy-MM-dd");
         String sdate = simpleDate.format(todayDate);
-        
-        JOptionPane.showMessageDialog(null, sdate);
-        
+
         requete.setString(1, sdate);
         requete.setInt(2, user.getIdUser());
         requete.execute();  
