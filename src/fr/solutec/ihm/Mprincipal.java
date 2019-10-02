@@ -646,7 +646,7 @@ public class Mprincipal extends javax.swing.JFrame {
         panel3.setVisible(false);
         tfDateSelected.setText(simpleDate.format(todayDate));
         try {
-            lPoids.setText(String.valueOf(Cuserdao.getpoids(currentUser)));
+            lPoids.setText(String.valueOf(Cuserdao.getpoids(currentUser)) + " kg");
             lDerniereCo.setText(Cuserdao.getDateConnect(currentUser));
         } catch (Exception e) {
             JOptionPane.showMessageDialog(rootPane, "Erreur dernière connexion : " + e.getMessage());
