@@ -15,17 +15,15 @@ public class Ctache {
     private int idTache;
     private Date dateDebut;
     private Date dateFin;
-    private boolean hp;
     private boolean ao;
     private float valTache;
 
     public Ctache() {
     }
-    public Ctache(int idTache, Date dateDebut, Date dateFin, boolean hp, boolean ao, float valTache) {
+    public Ctache(int idTache, Date dateDebut, Date dateFin, boolean ao, float valTache) {
         this.idTache = idTache;
         this.dateDebut = dateDebut;
         this.dateFin = dateFin;
-        this.hp = hp;
         this.ao = ao;
         this.valTache = valTache;
     }
@@ -38,9 +36,6 @@ public class Ctache {
     }
     public Date getDateFin() {
         return dateFin;
-    }
-    public boolean isHp() {
-        return hp;
     }
     public boolean isAo() {
         return ao;
@@ -56,9 +51,6 @@ public class Ctache {
     }
     public void setDateFin(Date dateFin) {
         this.dateFin = dateFin;
-    }
-    public void setHp(boolean hp) {
-        this.hp = hp;
     }
     public void setAo(boolean ao) {
         this.ao = ao;

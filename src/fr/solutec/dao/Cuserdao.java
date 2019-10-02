@@ -11,6 +11,9 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -117,7 +120,7 @@ public class Cuserdao {
         requete.execute();
     }
     
-        public static void insertTache(Cuser user, Date datedeb, Date datefin, boolean HQ, boolean AO, String typretache, float valeur) throws SQLException {
+        public static void insertTache(Cuser user, Date datedeb, Date datefin, boolean AO, String typretache, float valeur) throws SQLException {
         // Fonction pour ajouter une tache
         
         int idType = 0;
@@ -130,18 +133,133 @@ public class Cuserdao {
             idType = rs.getInt("idtype");
         }
         
-        String sql = "INSERT INTO Tache (datedeb, datefin, hq, ao, idtype, valtache, iduser) values (?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO Tache (datedeb, datefin, ao, idtype, valtache, iduser) values (?,?,?,?,?,?)";
         PreparedStatement requete = connection.prepareStatement(sql);
         
         requete.setDate(1, datedeb);
         requete.setDate(2, datefin);
-        requete.setBoolean(3, HQ);
-        requete.setBoolean(4, AO);
-        requete.setInt(5, idType);
-        requete.setFloat(6, valeur);
+        requete.setBoolean(3, AO);
+        requete.setInt(4, idType);
+        requete.setFloat(5, valeur);
         requete.setInt(6, user.getIdUser());
        
         requete.execute(); 
     }
     
+    public static List<Ctache> getObjectifDay(Cuser user, Date day) throws SQLException{
+        // Récupère les objectifs  de l'utilisateur en argument à la date en argument
+        
+        List<Ctache> result = new ArrayList<>();
+        String sql = "SELECT * FROM tache WHERE datedeb = ? AND datefin = ? AND ao = false";
+        Connection connection = Caccesdao.getConnection();
+        PreparedStatement requete = connection.prepareStatement(sql);
+        ResultSet rs = requete.executeQuery(sql);
+        
+        requete.setDate(1, day);
+        requete.setDate(2, day);
+        
+        requete.execute();
+        
+        while (rs.next()){
+            Ctache t = new Ctache();
+            t.setDateDebut(rs.getDate("datedeb"));
+            t.setDateFin(rs.getDate("datefin"));
+            t.setAo(rs.getBoolean("ao"));
+            t.setIdTache(rs.getInt("idtache"));
+            t.setValTache(rs.getFloat("valtache"));  
+            result.add(t);
+        }
+        return result; 
+    } 
+    
+    public static List<Ctache> getObjectifWeek(Cuser user, Date day) throws SQLException{
+        //Récupère les objectifs de l'user en argument de la semaine de la date en argument
+        
+        List<Ctache> result = new ArrayList<>();
+        String sql = "SELECT * FROM tache WHERE datedeb < ? < datefin  AND ao = false";
+        Connection connection = Caccesdao.getConnection();
+        PreparedStatement requete = connection.prepareStatement(sql);
+        ResultSet rs = requete.executeQuery(sql);
+        
+        requete.setDate(1, day);
+        
+        requete.execute();
+        
+        while (rs.next()){
+            Ctache t = new Ctache();
+            t.setDateDebut(rs.getDate("datedeb"));
+            t.setDateFin(rs.getDate("datefin"));
+            t.setAo(rs.getBoolean("ao"));
+            t.setIdTache(rs.getInt("idtache"));
+            t.setValTache(rs.getFloat("valtache"));  
+            result.add(t);
+        }
+        return result; 
+    }   
+    
+    public static List<Ctache> getActionDay(Cuser user, Date day) throws SQLException{
+        //Récupère les actions du jour
+        
+        List<Ctache> result = new ArrayList<>();
+        String sql = "SELECT * FROM tache WHERE datedeb = ? AND datefin = ? AND ao = true";
+        Connection connection = Caccesdao.getConnection();
+        PreparedStatement requete = connection.prepareStatement(sql);
+        ResultSet rs = requete.executeQuery(sql);
+        
+        requete.setDate(1, day);
+        requete.setDate(2, day);
+        
+        requete.execute();
+        
+        while (rs.next()){
+            Ctache t = new Ctache();
+            t.setDateDebut(rs.getDate("datedeb"));
+            t.setDateFin(rs.getDate("datefin"));
+            t.setAo(rs.getBoolean("ao"));
+            t.setIdTache(rs.getInt("idtache"));
+            t.setValTache(rs.getFloat("valtache"));  
+            result.add(t);
+        }
+        return result;     
+    }
+    
+    public static List<Ctache> getActionDone(Cuser user, Date day) throws SQLException{
+        // récupère les actions passés
+        
+        List<Ctache> result = new ArrayList<>();
+        String sql = "SELECT * FROM tache WHERE datefin < ? AND ao = true";
+        Connection connection = Caccesdao.getConnection();
+        PreparedStatement requete = connection.prepareStatement(sql);
+        ResultSet rs = requete.executeQuery(sql);
+        
+        requete.setDate(1, day);
+        
+        requete.execute();
+        
+        while (rs.next()){
+            Ctache t = new Ctache();
+            t.setDateDebut(rs.getDate("datedeb"));
+            t.setDateFin(rs.getDate("datefin"));
+            t.setAo(rs.getBoolean("ao"));
+            t.setIdTache(rs.getInt("idtache"));
+            t.setValTache(rs.getFloat("valtache"));  
+            result.add(t);
+        }
+        return result; 
+    }
+    
+    
+        public static void insertPoids(Cuser user, Date day, float value) throws SQLException {
+        // Fonction pour ajouter un utilisateur
+        
+        Connection connection = Caccesdao.getConnection();
+        String sql = "INSERT INTO User (iduser, datepoids, valpoids) values (?,?,?)";
+        PreparedStatement requete = connection.prepareStatement(sql);
+        
+        requete.setInt(1, user.getIdUser());
+        requete.setDate(2, day);
+        requete.setFloat(3, value);
+
+        requete.execute(); 
+    }
 }
