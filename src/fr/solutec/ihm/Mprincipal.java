@@ -58,6 +58,7 @@ public class Mprincipal extends javax.swing.JFrame {
         bProfil = new javax.swing.JButton();
         bDeconnexion = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        bHistorique = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         lDerniereCo = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
@@ -86,6 +87,7 @@ public class Mprincipal extends javax.swing.JFrame {
         lValeur3 = new javax.swing.JLabel();
         tfValeur3 = new javax.swing.JTextField();
         bAnnuler3 = new javax.swing.JButton();
+        jPanel6 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -169,12 +171,14 @@ public class Mprincipal extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setText("Aide ?");
+        jButton4.setText("Aide");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
+
+        bHistorique.setText("Historique");
 
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Dernière connexion :");
@@ -189,26 +193,29 @@ public class Mprincipal extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lDerniereCo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(bDeconnexion, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(bDeconnexion, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)
                     .addComponent(bProfil, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(bHistorique, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lDerniereCo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(bProfil)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(250, 250, 250)
+                .addComponent(bHistorique)
+                .addGap(18, 18, 18)
                 .addComponent(jButton4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lDerniereCo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(bProfil)
                 .addGap(18, 18, 18)
                 .addComponent(bDeconnexion)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel6)
+                .addGap(12, 12, 12)
+                .addComponent(lDerniereCo)
                 .addContainerGap())
         );
 
@@ -239,14 +246,14 @@ public class Mprincipal extends javax.swing.JFrame {
             .addGap(0, 2, Short.MAX_VALUE)
         );
 
-        bAjouter2.setText("Ajouter");
+        bAjouter2.setText("Ajouter objectif");
         bAjouter2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bAjouter2ActionPerformed(evt);
             }
         });
 
-        bAjouter3.setText("Ajouter");
+        bAjouter3.setText("Ajouter objectif");
         bAjouter3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bAjouter3ActionPerformed(evt);
@@ -444,6 +451,17 @@ public class Mprincipal extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 130, Short.MAX_VALUE)
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 17, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -459,10 +477,10 @@ public class Mprincipal extends javax.swing.JFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
+                        .addGap(12, 12, 12)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
+                                .addGap(15, 15, 15)
                                 .addComponent(bAjouter1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -472,29 +490,36 @@ public class Mprincipal extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(bAjouter2)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(txtTaches2, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGap(6, 6, 6)
+                                        .addComponent(txtTaches2, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(16, 16, 16))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                                .addComponent(bAjouter2)
+                                                .addGap(36, 36, 36)))
+                                        .addComponent(panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(15, 15, 15)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(50, 50, 50)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(txtTaches3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addContainerGap())))
+                                        .addGap(122, 122, 122)
+                                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(bAjouter3)
-                                        .addGap(50, 50, 50)
-                                        .addComponent(panel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 8, Short.MAX_VALUE))))
-                            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 846, Short.MAX_VALUE)))
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addComponent(bAjouter3)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(panel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(150, 150, 150))
+                                            .addComponent(txtTaches3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addContainerGap())))
+                            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 1162, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(88, 88, 88)
+                        .addGap(545, 545, 545)
                         .addComponent(txtTaches1, javax.swing.GroupLayout.PREFERRED_SIZE, 629, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
@@ -511,13 +536,13 @@ public class Mprincipal extends javax.swing.JFrame {
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(panel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(bAjouter1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(50, 50, 50)
                         .addComponent(txtTaches1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -525,20 +550,24 @@ public class Mprincipal extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel4)
                                     .addComponent(jLabel1))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(bAjouter2)
-                                    .addComponent(bAjouter3)
-                                    .addComponent(panel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(50, 50, 50)
-                                        .addComponent(txtTaches3, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtTaches2, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(24, 24, 24))))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addComponent(bAjouter2)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(txtTaches2, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(bAjouter3)
+                                            .addComponent(panel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(txtTaches3, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
@@ -552,33 +581,18 @@ public class Mprincipal extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void bDeconnexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDeconnexionActionPerformed
-        // Chistorique.getUnique().ajoutLog("Déconnexion");
-        try {
-            Cuserdao.insertDateConnect(currentUser);
-        } catch (Exception e) {
-            
-        }
-        
-        
-        JOptionPane.showMessageDialog(rootPane, "Déconnexion...");
-        this.setVisible(false);
-        Mconnexion m = new Mconnexion();
-        m.setVisible(true);
-    }//GEN-LAST:event_bDeconnexionActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         lBienvenue.setText("Bienvenue dans votre espace, " + currentUser.getPrenomUser());
@@ -602,14 +616,35 @@ public class Mprincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_formWindowOpened
 
-    private void bProfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bProfilActionPerformed
-        Mprofil mprofil = new Mprofil(currentUser);
-        mprofil.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_bProfilActionPerformed
+    private void bAnnuler3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAnnuler3ActionPerformed
+        panel3.setVisible(false);
+        bAjouter3.setText("Ajouter objectif");
+    }//GEN-LAST:event_bAnnuler3ActionPerformed
+
+    private void tfValeur3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfValeur3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfValeur3ActionPerformed
+
+    private void bAnnuler2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAnnuler2ActionPerformed
+        panel2.setVisible(false);
+        bAjouter2.setText("Ajouter objectif");
+    }//GEN-LAST:event_bAnnuler2ActionPerformed
+
+    private void tfValeur2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfValeur2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfValeur2ActionPerformed
+
+    private void bAnnuler1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAnnuler1ActionPerformed
+        panel1.setVisible(false);
+        bAjouter1.setText("Ajouter action");
+    }//GEN-LAST:event_bAnnuler1ActionPerformed
+
+    private void tfValeur1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfValeur1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfValeur1ActionPerformed
 
     private void bAjouter1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAjouter1ActionPerformed
-        
+
         if(bAjouter1.getText().equals("Confirmer")){
             //Cuserdao.insertTache(currentUser, datedeb, datefin, rootPaneCheckingEnabled, typretache, TOP_ALIGNMENT);
             bAjouter1.setText("Ajouter action");
@@ -621,49 +656,9 @@ public class Mprincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_bAjouter1ActionPerformed
 
-    private void bAnnuler1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAnnuler1ActionPerformed
-        panel1.setVisible(false);
-        bAjouter1.setText("Ajouter action");
-    }//GEN-LAST:event_bAnnuler1ActionPerformed
-
-    private void tfValeur1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfValeur1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfValeur1ActionPerformed
-
-    private void tfValeur2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfValeur2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfValeur2ActionPerformed
-
-    private void bAnnuler2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAnnuler2ActionPerformed
-        panel2.setVisible(false);
-        bAjouter2.setText("Ajouter");
-    }//GEN-LAST:event_bAnnuler2ActionPerformed
-
-    private void tfValeur3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfValeur3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfValeur3ActionPerformed
-
-    private void bAnnuler3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAnnuler3ActionPerformed
-        panel3.setVisible(false);
-        bAjouter3.setText("Ajouter");
-    }//GEN-LAST:event_bAnnuler3ActionPerformed
-
-    private void bAjouter2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAjouter2ActionPerformed
-        if(bAjouter2.getText().equals("Confirmer")){
-            bAjouter2.setText("Ajouter");
-            //
-            //
-            panel2.setVisible(false);
-        }
-        else{
-            bAjouter2.setText("Confirmer");
-            panel2.setVisible(true);
-        }
-    }//GEN-LAST:event_bAjouter2ActionPerformed
-
     private void bAjouter3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAjouter3ActionPerformed
         if(bAjouter3.getText().equals("Confirmer")){
-            bAjouter3.setText("Ajouter");
+            bAjouter3.setText("Ajouter objectif");
             //
             //
             panel3.setVisible(false);
@@ -674,15 +669,49 @@ public class Mprincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_bAjouter3ActionPerformed
 
-    private void tfDateNowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfDateNowActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfDateNowActionPerformed
+    private void bAjouter2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAjouter2ActionPerformed
+        if(bAjouter2.getText().equals("Confirmer")){
+            bAjouter2.setText("Ajouter objectif");
+            //
+            //
+            panel2.setVisible(false);
+        }
+        else{
+            bAjouter2.setText("Confirmer");
+            panel2.setVisible(true);
+        }
+    }//GEN-LAST:event_bAjouter2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         Maide maide = new Maide(currentUser);
         maide.setVisible(true);
-        
+
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void bDeconnexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDeconnexionActionPerformed
+        // Chistorique.getUnique().ajoutLog("Déconnexion");
+        try {
+            Cuserdao.insertDateConnect(currentUser);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, "Erreur insertDateConnect : " + e.getMessage());
+
+        }
+
+        JOptionPane.showMessageDialog(rootPane, "Déconnexion...");
+        this.setVisible(false);
+        Mconnexion m = new Mconnexion();
+        m.setVisible(true);
+    }//GEN-LAST:event_bDeconnexionActionPerformed
+
+    private void bProfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bProfilActionPerformed
+        Mprofil mprofil = new Mprofil(currentUser);
+        mprofil.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_bProfilActionPerformed
+
+    private void tfDateNowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfDateNowActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfDateNowActionPerformed
 
     /**
      * @param args the command line arguments
@@ -727,6 +756,7 @@ public class Mprincipal extends javax.swing.JFrame {
     private javax.swing.JButton bAnnuler2;
     private javax.swing.JButton bAnnuler3;
     private javax.swing.JButton bDeconnexion;
+    private javax.swing.JButton bHistorique;
     private javax.swing.JButton bProfil;
     private javax.swing.JComboBox<String> cbTypeAction1;
     private javax.swing.JComboBox<String> cbTypeAction2;
@@ -744,6 +774,7 @@ public class Mprincipal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JLabel lBienvenue;
     private javax.swing.JLabel lDerniereCo;
     private javax.swing.JLabel lTypeAction1;

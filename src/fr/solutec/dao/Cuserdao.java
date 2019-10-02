@@ -12,8 +12,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -202,12 +204,13 @@ public class Cuserdao {
         String sql = "SELECT * FROM tache WHERE datedeb = ? AND datefin = ? AND ao = true";
         Connection connection = Caccesdao.getConnection();
         PreparedStatement requete = connection.prepareStatement(sql);
-        ResultSet rs = requete.executeQuery(sql);
         
         requete.setDate(1, day);
         requete.setDate(2, day);
+        ResultSet rs = requete.executeQuery(sql);
         
-        requete.execute();
+        System.out.println(rs.getDate("datedeb"));
+        // requete.execute();
         
         while (rs.next()){
             Ctache t = new Ctache();
@@ -287,10 +290,13 @@ public class Cuserdao {
         Connection connection = Caccesdao.getConnection();
         String sql = "UPDATE User SET dateconnect = ? WHERE iduser = ?";
         PreparedStatement requete = connection.prepareStatement(sql);
+
+        java.util.Date todayDate = new java.util.Date();
+        SimpleDateFormat simpleDate = new SimpleDateFormat("yyyy-MM-dd");
+        String sdate = simpleDate.format(todayDate);
         
+        JOptionPane.showMessageDialog(null, sdate);
         
-        java.util.Date d = new java.util.Date();
-        String sdate = String.valueOf(d);
         requete.setString(1, sdate);
         requete.setInt(2, user.getIdUser());
         requete.execute();  
@@ -298,14 +304,20 @@ public class Cuserdao {
     
     public static String getDateConnect(Cuser user) throws SQLException{
 
+        String date = "";
         String sql = "SELECT dateconnect FROM User WHERE iduser = ?";
+        
         Connection connection = Caccesdao.getConnection();
         PreparedStatement requete = connection.prepareStatement(sql);
-        ResultSet rs = requete.executeQuery(sql);
-        String date = "";
-        requete.setInt(1, user.getIdUser());
         
-        requete.execute();
+        
+        requete.setInt(1, user.getIdUser());
+        ResultSet rs = requete.executeQuery(sql);
+        
+        String date2 = "sasa";
+        System.out.println(date2);
+        // requete.execute();
+        
         
         if (rs.next()) {
             date = rs.getString("dateconnect");
