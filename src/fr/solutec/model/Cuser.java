@@ -20,6 +20,9 @@ public class Cuser {
     private float tailleUser;
     private float ageUser;
     private String sexeUser;
+    private String dateConnect;
+    private boolean helpUser;
+    
 
     public Cuser() {
     }
@@ -33,6 +36,22 @@ public class Cuser {
         this.tailleUser = tailleUser;
         this.ageUser = ageUser;
         this.sexeUser = sexeUser;
+    }
+
+    public String getDateConnect() {
+        return dateConnect;
+    }
+
+    public void setDateConnect(String dateConnect) {
+        this.dateConnect = dateConnect;
+    }
+
+    public boolean isHelpUser() {
+        return helpUser;
+    }
+
+    public void setHelpUser(boolean helpUser) {
+        this.helpUser = helpUser;
     }
 
     public int getIdUser() {

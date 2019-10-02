@@ -233,6 +233,8 @@ public class Minscription extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(rootPane, "Utilisateur créé !");
                 Mprincipal mprincipal = new Mprincipal(newUser);
                 mprincipal.setVisible(true);
+                Maide maide = new Maide(newUser);
+                maide.setVisible(true);
                 this.setVisible(false);
                 
             }

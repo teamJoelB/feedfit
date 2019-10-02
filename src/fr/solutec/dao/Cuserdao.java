@@ -44,6 +44,8 @@ public class Cuserdao {
             resultat.setTailleUser(rs.getFloat("tailleuser"));
             resultat.setAgeUser(rs.getInt("ageuser"));
             resultat.setSexeUser(rs.getString("sexeuser"));
+            resultat.setDateConnect(rs.getString("dateconnect"));
+            resultat.setHelpUser(rs.getBoolean("helpuser"));
         }
         return resultat;
     }
@@ -52,7 +54,7 @@ public class Cuserdao {
         // Fonction pour ajouter un utilisateur
         
         Connection connection = Caccesdao.getConnection();
-        String sql = "INSERT INTO User (nomuser, prenomuser, pseudouser, mailuser, mdpuser, poidsuser, tailleuser, ageuser, sexeuser) values (?,?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO User (nomuser, prenomuser, pseudouser, mailuser, mdpuser, poidsuser, tailleuser, ageuser, sexeuser, helpuser) values (?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement requete = connection.prepareStatement(sql);
         requete.setString(1, user.getNomUser());
         requete.setString(2, user.getPrenomUser());
@@ -63,6 +65,7 @@ public class Cuserdao {
         requete.setFloat(7, user.getTailleUser());
         requete.setFloat(8, user.getAgeUser());
         requete.setString(9, user.getSexeUser());
+        requete.setBoolean(10, false);
         requete.execute(); 
     }
     
@@ -244,7 +247,7 @@ public class Cuserdao {
     }
     
     
-        public static void insertPoids(Cuser user, Date day, float value) throws SQLException {
+    public static void insertPoids(Cuser user, Date day, float value) throws SQLException {
         // Fonction pour ajouter un utilisateur
         
         Connection connection = Caccesdao.getConnection();
@@ -256,5 +259,57 @@ public class Cuserdao {
         requete.setFloat(3, value);
 
         requete.execute(); 
+    }
+        
+    public static String getTypeTache(Ctache tache) throws SQLException {
+        // Récupère le type de tache de la tache
+        
+        String str = "";
+        String sql;
+        sql = "SELECT typetache FROM Type INNER JOIN Tache On Tache.idtype = Type.idtype WHERE idtache = ?";
+        Connection connection = Caccesdao.getConnection();
+        PreparedStatement requete = connection.prepareStatement(sql);
+        ResultSet rs = requete.executeQuery(sql);
+        
+        requete.setInt(1, tache.getIdTache());
+        requete.execute(); 
+        
+        if (rs.next()){
+            str = rs.getString("typetache");
+        }
+             
+        return str;
+    }
+    
+    public static void insertDateConnect(Cuser user) throws SQLException {
+        // Insère la date actuelle dans l'utilisateur
+        
+        Connection connection = Caccesdao.getConnection();
+        String sql = "UPDATE User SET dateconnect = ? WHERE iduser = ?";
+        PreparedStatement requete = connection.prepareStatement(sql);
+        
+        
+        java.util.Date d = new java.util.Date();
+        String sdate = String.valueOf(d);
+        requete.setString(1, sdate);
+        requete.setInt(2, user.getIdUser());
+        requete.execute();  
+    }
+    
+    public static String getDateConnect(Cuser user) throws SQLException{
+
+        String sql = "SELECT dateconnect FROM User WHERE iduser = ?";
+        Connection connection = Caccesdao.getConnection();
+        PreparedStatement requete = connection.prepareStatement(sql);
+        ResultSet rs = requete.executeQuery(sql);
+        String date = "";
+        requete.setInt(1, user.getIdUser());
+        
+        requete.execute();
+        
+        if (rs.next()) {
+            date = rs.getString("dateconnect");
+        }              
+        return date;
     }
 }

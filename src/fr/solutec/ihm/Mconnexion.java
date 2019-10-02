@@ -170,6 +170,12 @@ public class Mconnexion extends javax.swing.JFrame {
                 Mprincipal mprincipal = new Mprincipal(currentUser);
                 mprincipal.setVisible(true);
                 this.setVisible(false);
+                
+                // Ouverture de l'aide si mise à jour
+                if (currentUser.isHelpUser()){
+                    Maide maide = new Maide(currentUser);
+                    maide.setVisible(true);
+                }
             }
             else{
                 JOptionPane.showMessageDialog(rootPane, "Connection not OK.");

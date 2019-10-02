@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 01 oct. 2019 à 15:25
+-- Généré le :  mer. 02 oct. 2019 à 08:14
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -107,6 +107,8 @@ CREATE TABLE IF NOT EXISTS `user` (
   `tailleuser` float DEFAULT NULL,
   `ageuser` int(11) DEFAULT NULL,
   `sexeuser` varchar(20) DEFAULT NULL,
+  `helpuser` tinyint(1) DEFAULT NULL,
+  `dateconnect` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`iduser`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
@@ -114,9 +116,9 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Déchargement des données de la table `user`
 --
 
-INSERT INTO `user` (`iduser`, `nomuser`, `prenomuser`, `pseudouser`, `mailuser`, `mdpuser`, `poidsuser`, `tailleuser`, `ageuser`, `sexeuser`) VALUES
-(1, 'Rocha', 'Claudio', 'crocha', 'crocha@test.com', 'test', 65, 1.78, 24, 'H'),
-(2, 'Rocha', 'Claudio', 'crocha', 'crocha@test.com', 'test', 65, 1.78, 24, 'H');
+INSERT INTO `user` (`iduser`, `nomuser`, `prenomuser`, `pseudouser`, `mailuser`, `mdpuser`, `poidsuser`, `tailleuser`, `ageuser`, `sexeuser`, `helpuser`, `dateconnect`) VALUES
+(1, 'Rocha', 'Claudio', 'crocha', 'crocha@test.com', 'test', 65, 1.78, 24, 'H', NULL, NULL),
+(2, 'Rocha', 'Claudio', 'crocha', 'crocha@test.com', 'test', 65, 1.78, 24, 'H', NULL, NULL);
 
 --
 -- Contraintes pour les tables déchargées
