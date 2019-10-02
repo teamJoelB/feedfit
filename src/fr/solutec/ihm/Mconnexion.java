@@ -175,6 +175,7 @@ public class Mconnexion extends javax.swing.JFrame {
                 if (currentUser.isHelpUser()){
                     Maide maide = new Maide(currentUser);
                     maide.setVisible(true);
+                    Cuserdao.setHelpUserFalse(currentUser);                   
                 }
             }
             else{
