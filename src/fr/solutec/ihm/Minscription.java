@@ -6,6 +6,8 @@
 package fr.solutec.ihm;
 
 
+import fr.solutec.dao.Cuserdao;
+import fr.solutec.model.Cuser;
 import static java.awt.Color.RED;
 import javafx.scene.paint.Color;
 import javax.swing.BorderFactory;
@@ -53,6 +55,8 @@ public class Minscription extends javax.swing.JFrame {
         bInscription = new javax.swing.JButton();
         bRevenirConnexion = new javax.swing.JButton();
         tfMDP = new javax.swing.JPasswordField();
+        tfPseudo = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -100,6 +104,8 @@ public class Minscription extends javax.swing.JFrame {
             }
         });
 
+        jLabel10.setText("Pseudo :");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -111,26 +117,28 @@ public class Minscription extends javax.swing.JFrame {
                         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(169, 169, 169)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel10))
                         .addGap(50, 50, 50)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(tfNom, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tfPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tfMail, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tfAge, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tfTaille, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tfPoids, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(cbSexe, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(tfNom, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                                .addComponent(tfPrenom, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                                .addComponent(tfMail, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                                .addComponent(tfAge, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                                .addComponent(tfTaille, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                                .addComponent(tfPoids, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                                .addComponent(cbSexe, 0, 200, Short.MAX_VALUE)
+                                .addComponent(tfPseudo))
                             .addComponent(tfMDP, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -146,7 +154,11 @@ public class Minscription extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(jLabel1)
-                .addGap(35, 35, 35)
+                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tfPseudo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10))
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(tfNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -182,7 +194,7 @@ public class Minscription extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bInscription)
                     .addComponent(bRevenirConnexion))
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         pack();
@@ -196,15 +208,39 @@ public class Minscription extends javax.swing.JFrame {
 
     private void bInscriptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bInscriptionActionPerformed
         
-        if(tfNom.getText().equals("") || tfPrenom.getText().equals("") || tfMail.getText().equals("") || tfMDP.getText().equals("")){
-            tfNom.setBorder(BorderFactory.createLineBorder(RED));
-            tfPrenom.setBorder(BorderFactory.createLineBorder(RED));
-            tfMail.setBorder(BorderFactory.createLineBorder(RED));
-            tfMDP.setBorder(BorderFactory.createLineBorder(RED));
-            JOptionPane.showMessageDialog(rootPane, "Veuillez compléter les champs vides.");
+        try {
+            if(tfPseudo.getText().equals("") || tfNom.getText().equals("") || tfPrenom.getText().equals("") || tfMail.getText().equals("") || tfMDP.getText().equals("")){
+                tfPseudo.setBorder(BorderFactory.createLineBorder(RED));
+                tfNom.setBorder(BorderFactory.createLineBorder(RED));
+                tfPrenom.setBorder(BorderFactory.createLineBorder(RED));
+                tfMail.setBorder(BorderFactory.createLineBorder(RED));
+                tfMDP.setBorder(BorderFactory.createLineBorder(RED));
+                JOptionPane.showMessageDialog(rootPane, "Veuillez compléter les champs vides.");
+
+            }
+            else{
+                Cuser newUser = new Cuser();
+                newUser.setPseudoUser(tfPseudo.getText());
+                newUser.setNomUser(tfNom.getText());
+                newUser.setPrenomUser(tfPrenom.getText());
+                newUser.setMailUser(tfMail.getText());
+                newUser.setMdpUser(tfMDP.getText());
+                newUser.setSexeUser(String.valueOf(cbSexe.getSelectedItem()));
+                newUser.setAgeUser(Float.parseFloat(tfAge.getText()));
+                newUser.setPoidsUser(Float.parseFloat(tfPoids.getText()));
+                newUser.setTailleUser(Float.parseFloat(tfTaille.getText()));
+                Cuserdao.insertUser(newUser);
+                JOptionPane.showMessageDialog(rootPane, "Utilisateur créé !");
+                Mprincipal mprincipal = new Mprincipal(newUser);
+                mprincipal.setVisible(true);
+                this.setVisible(false);
+                
+            }
             
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, "Erreur. " + e.getMessage());
         }
-        
         
     }//GEN-LAST:event_bInscriptionActionPerformed
 
@@ -248,6 +284,7 @@ public class Minscription extends javax.swing.JFrame {
     private javax.swing.JButton bRevenirConnexion;
     private javax.swing.JComboBox<String> cbSexe;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -262,6 +299,7 @@ public class Minscription extends javax.swing.JFrame {
     private javax.swing.JTextField tfNom;
     private javax.swing.JTextField tfPoids;
     private javax.swing.JTextField tfPrenom;
+    private javax.swing.JTextField tfPseudo;
     private javax.swing.JTextField tfTaille;
     // End of variables declaration//GEN-END:variables
 }

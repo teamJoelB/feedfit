@@ -5,7 +5,9 @@
  */
 package fr.solutec.ihm;
 
+import fr.solutec.dao.Cuserdao;
 import fr.solutec.model.Cuser;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -104,6 +106,11 @@ public class Mprofil extends javax.swing.JFrame {
         cbSexe.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Autre", "Masculin", "Féminin" }));
 
         jButton1.setText("Enregistrer");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("< Revenir au Menu Principal");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -224,7 +231,7 @@ public class Mprofil extends javax.swing.JFrame {
         tfPrenom.setText(currentUser.getPrenomUser());
         tfMail.setText(currentUser.getMailUser());
         tfMDP.setText(currentUser.getMdpUser());
-        tfTaille.setText(String.valueOf(currentUser.getNomUser()));
+        tfTaille.setText(String.valueOf(currentUser.getTailleUser()));
         tfAge.setText(String.valueOf(currentUser.getAgeUser()));
         cbSexe.setSelectedItem(currentUser.getSexeUser());
         
@@ -243,6 +250,28 @@ public class Mprofil extends javax.swing.JFrame {
     private void tfPrenomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfPrenomActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfPrenomActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+        try {
+
+            Cuserdao.majUser(currentUser, tfNom.getText(), tfPrenom.getText(), tfMail.getText(), tfMDP.getText(),
+                    Float.parseFloat(tfTaille.getText()), Float.parseFloat(tfAge.getText()), String.valueOf(cbSexe.getSelectedItem()));
+            JOptionPane.showMessageDialog(rootPane, "Utilisateur modifié !");
+            Mprincipal mprincipal = new Mprincipal(currentUser);
+            mprincipal.setVisible(true);
+            this.setVisible(false);
+
+            
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, "Erreur. " + e.getMessage());
+        }
+                
+                
+        
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
