@@ -9,6 +9,8 @@ package fr.solutec.ihm;
 import fr.solutec.dao.Cuserdao;
 import fr.solutec.model.Cuser;
 import static java.awt.Color.RED;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javafx.scene.paint.Color;
 import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
@@ -230,6 +232,13 @@ public class Minscription extends javax.swing.JFrame {
                 newUser.setPoidsUser(Float.parseFloat(tfPoids.getText()));
                 newUser.setTailleUser(Float.parseFloat(tfTaille.getText()));
                 Cuserdao.insertUser(newUser);
+                
+                Date todayDate = new Date();
+                SimpleDateFormat simpleDate = new SimpleDateFormat("yyyy-MM-dd");
+                java.sql.Date sqlDate = java.sql.Date.valueOf(simpleDate.format(todayDate));
+
+                Cuserdao.insertPoids(newUser, sqlDate, newUser.getPoidsUser());
+                
                 JOptionPane.showMessageDialog(rootPane, "Utilisateur créé !");
                 Mprincipal mprincipal = new Mprincipal(newUser);
                 mprincipal.setVisible(true);

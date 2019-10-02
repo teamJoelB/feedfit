@@ -246,7 +246,7 @@ public class Cuserdao {
         // Fonction pour ajouter un utilisateur
         
         Connection connection = Caccesdao.getConnection();
-        String sql = "INSERT INTO User (iduser, datepoids, valpoids) values (?,?,?)";
+        String sql = "INSERT INTO Poids (iduser, datepoids, valpoids) values (?,?,?)";
         PreparedStatement requete = connection.prepareStatement(sql);
         
         requete.setInt(1, user.getIdUser());
@@ -279,11 +279,14 @@ public class Cuserdao {
         Connection connection = Caccesdao.getConnection();
         PreparedStatement requete = connection.prepareStatement(sql);
         
-        requete.setInt(1, user.getIdUser());
-        requete.setDate(2, day);
+        requete.setDate(1, day);
+        requete.setInt(2, user.getIdUser());
         ResultSet rs = requete.executeQuery();
-
+        System.out.println("In the function");
         while (rs.next()){
+            
+            System.out.println("In the while");
+            
             Cpoids p = new Cpoids();
             p.setDatePoids(rs.getDate("datepoids"));
             p.setIdUser(user.getIdUser());

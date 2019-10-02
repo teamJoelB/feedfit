@@ -5,6 +5,15 @@
  */
 package fr.solutec.ihm;
 
+import fr.solutec.dao.Cuserdao;
+import fr.solutec.model.Cpoids;
+import fr.solutec.model.Ctache;
+import fr.solutec.model.Cuser;
+import java.sql.Date;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author esic
@@ -14,8 +23,13 @@ public class Mpoids extends javax.swing.JFrame {
     /**
      * Creates new form Mpoids
      */
-    public Mpoids() {
+    private static Cuser currentUser;
+    private static Date day;
+    
+    public Mpoids(Cuser currentUser, Date day) {
         initComponents();
+        this.currentUser = currentUser;
+        this.day = day;
     }
 
     /**
@@ -32,9 +46,14 @@ public class Mpoids extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tbPoids = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel1.setText("Historique des poids");
@@ -46,7 +65,7 @@ public class Mpoids extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbPoids.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -57,7 +76,7 @@ public class Mpoids extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tbPoids);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -110,6 +129,28 @@ public class Mpoids extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+                
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("Date Poids");
+        model.addColumn("Valeur");
+        
+        try {
+            List<Cpoids> poids = Cuserdao.getAllPoids(currentUser, day);
+            for (Cpoids pds : poids) {
+                System.out.println("Add 1 !");
+                model.addRow(new Object[]{
+                    pds.getDatePoids(),
+                    pds.getValPoids()
+                });
+            }          
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, e);
+        }
+        tbPoids.setModel(model);        
+    
+    }//GEN-LAST:event_formWindowOpened
+
     /**
      * @param args the command line arguments
      */
@@ -140,7 +181,7 @@ public class Mpoids extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Mpoids().setVisible(true);
+                new Mpoids(currentUser, day).setVisible(true);
             }
         });
     }
@@ -151,6 +192,6 @@ public class Mpoids extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tbPoids;
     // End of variables declaration//GEN-END:variables
 }
