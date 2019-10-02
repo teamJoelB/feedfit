@@ -120,7 +120,7 @@ public class Cuserdao {
         requete.execute();
     }
     
-        public static void insertTache(Cuser user, Date datedeb, Date datefin, boolean AO, String typretache, float valeur) throws SQLException {
+        public static void insertTache(Cuser user, Date datedeb, Date datefin, boolean AO, String typetache, float valeur) throws SQLException {
         // Fonction pour ajouter une tache
         
         int idType = 0;
@@ -128,7 +128,8 @@ public class Cuserdao {
                
         String sqltype = "SELECT idtype FROM Type WHERE typetache = ?";
         PreparedStatement requetetype = connection.prepareStatement(sqltype);
-        ResultSet rs = requetetype.executeQuery(sqltype);
+        requetetype.setString(1, typetache);
+        ResultSet rs = requetetype.executeQuery();
         if (rs.next()){
             idType = rs.getInt("idtype");
         }
@@ -153,13 +154,11 @@ public class Cuserdao {
         String sql = "SELECT * FROM tache WHERE datedeb = ? AND datefin = ? AND ao = false";
         Connection connection = Caccesdao.getConnection();
         PreparedStatement requete = connection.prepareStatement(sql);
-        ResultSet rs = requete.executeQuery(sql);
         
         requete.setDate(1, day);
         requete.setDate(2, day);
-        
-        requete.execute();
-        
+        ResultSet rs = requete.executeQuery();
+
         while (rs.next()){
             Ctache t = new Ctache();
             t.setDateDebut(rs.getDate("datedeb"));
@@ -179,11 +178,9 @@ public class Cuserdao {
         String sql = "SELECT * FROM tache WHERE datedeb < ? < datefin  AND ao = false";
         Connection connection = Caccesdao.getConnection();
         PreparedStatement requete = connection.prepareStatement(sql);
-        ResultSet rs = requete.executeQuery(sql);
         
         requete.setDate(1, day);
-        
-        requete.execute();
+        ResultSet rs = requete.executeQuery();
         
         while (rs.next()){
             Ctache t = new Ctache();
@@ -207,10 +204,7 @@ public class Cuserdao {
         
         requete.setDate(1, day);
         requete.setDate(2, day);
-        ResultSet rs = requete.executeQuery(sql);
-        
-        System.out.println(rs.getDate("datedeb"));
-        // requete.execute();
+        ResultSet rs = requete.executeQuery();
         
         while (rs.next()){
             Ctache t = new Ctache();
@@ -231,12 +225,10 @@ public class Cuserdao {
         String sql = "SELECT * FROM tache WHERE datefin < ? AND ao = true";
         Connection connection = Caccesdao.getConnection();
         PreparedStatement requete = connection.prepareStatement(sql);
-        ResultSet rs = requete.executeQuery(sql);
         
         requete.setDate(1, day);
-        
-        requete.execute();
-        
+        ResultSet rs = requete.executeQuery();
+
         while (rs.next()){
             Ctache t = new Ctache();
             t.setDateDebut(rs.getDate("datedeb"));
@@ -272,15 +264,13 @@ public class Cuserdao {
         sql = "SELECT typetache FROM Type INNER JOIN Tache On Tache.idtype = Type.idtype WHERE idtache = ?";
         Connection connection = Caccesdao.getConnection();
         PreparedStatement requete = connection.prepareStatement(sql);
-        ResultSet rs = requete.executeQuery(sql);
         
         requete.setInt(1, tache.getIdTache());
-        requete.execute(); 
+        ResultSet rs = requete.executeQuery();
         
         if (rs.next()){
             str = rs.getString("typetache");
         }
-             
         return str;
     }
     
@@ -304,21 +294,15 @@ public class Cuserdao {
     
     public static String getDateConnect(Cuser user) throws SQLException{
 
+        Connection connection = Caccesdao.getConnection();
         String date = "";
         String sql = "SELECT dateconnect FROM User WHERE iduser = ?";
         
-        Connection connection = Caccesdao.getConnection();
         PreparedStatement requete = connection.prepareStatement(sql);
-        
-        
+
         requete.setInt(1, user.getIdUser());
-        ResultSet rs = requete.executeQuery(sql);
-        
-        String date2 = "sasa";
-        System.out.println(date2);
-        // requete.execute();
-        
-        
+        ResultSet rs = requete.executeQuery();
+
         if (rs.next()) {
             date = rs.getString("dateconnect");
         }              
