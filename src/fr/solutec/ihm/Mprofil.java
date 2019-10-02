@@ -5,6 +5,7 @@
  */
 package fr.solutec.ihm;
 
+import fr.solutec.dao.Cuserdao;
 import fr.solutec.model.Cuser;
 import javax.swing.JOptionPane;
 
@@ -230,7 +231,7 @@ public class Mprofil extends javax.swing.JFrame {
         tfPrenom.setText(currentUser.getPrenomUser());
         tfMail.setText(currentUser.getMailUser());
         tfMDP.setText(currentUser.getMdpUser());
-        tfTaille.setText(String.valueOf(currentUser.getNomUser()));
+        tfTaille.setText(String.valueOf(currentUser.getTailleUser()));
         tfAge.setText(String.valueOf(currentUser.getAgeUser()));
         cbSexe.setSelectedItem(currentUser.getSexeUser());
         
@@ -253,26 +254,14 @@ public class Mprofil extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
         try {
-            if(){
-                
 
-            }
-            else{
+            Cuserdao.majUser(currentUser, tfNom.getText(), tfPrenom.getText(), tfMail.getText(), tfMDP.getText(),
+                    Float.parseFloat(tfTaille.getText()), Float.parseFloat(tfAge.getText()), String.valueOf(cbSexe.getSelectedItem()));
+            JOptionPane.showMessageDialog(rootPane, "Utilisateur modifié !");
+            Mprincipal mprincipal = new Mprincipal(currentUser);
+            mprincipal.setVisible(true);
+            this.setVisible(false);
 
-                currentUser.setNomUser(tfNom.getText());
-                currentUser.setPrenomUser(tfPrenom.getText());
-                currentUser.setMailUser(tfMail.getText());
-                currentUser.setMdpUser(tfMDP.getText());
-                currentUser.setSexeUser(String.valueOf(cbSexe.getSelectedItem()));
-                currentUser.setAgeUser(Float.parseFloat(tfAge.getText()));
-                currentUser.setPoidsUser(Float.parseFloat(tfPoids.getText()));
-                currentUser.setTailleUser(Float.parseFloat(tfTaille.getText()));
-                Cuserdao.insertUser(currentUser);
-                JOptionPane.showMessageDialog(rootPane, "Utilisateur créé !");
-                Mprincipal mprincipal = new Mprincipal(currentUser);
-                mprincipal.setVisible(true);
-                this.setVisible(false);
-            }
             
             
         } catch (Exception e) {
