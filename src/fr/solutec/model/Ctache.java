@@ -5,7 +5,9 @@
  */
 package fr.solutec.model;
 
+import fr.solutec.dao.Cuserdao;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -59,6 +61,14 @@ public class Ctache {
         this.valTache = valTache;
     }
     
+    
+    public static String infoTache(List<Ctache> listeTache){
+        String data = "<html>";
+        for (Ctache ctache : listeTache) {
+            data += Cuserdao.getTypeTache(ctache) + " " + ctache.getValTache() + "<br>";
+        }
+        return  data;
+    }
     
     
     
