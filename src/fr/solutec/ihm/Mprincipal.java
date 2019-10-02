@@ -48,7 +48,7 @@ public class Mprincipal extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         lBienvenue = new javax.swing.JLabel();
-        tfDateNow = new javax.swing.JTextField();
+        tfDateSelected = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -64,6 +64,8 @@ public class Mprincipal extends javax.swing.JFrame {
         lDerniereCo = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         lPoids = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         bAjouter2 = new javax.swing.JButton();
@@ -107,14 +109,19 @@ public class Mprincipal extends javax.swing.JFrame {
         lBienvenue.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lBienvenue.setText("Bienvenue dans votre espace, *******");
 
-        tfDateNow.setText("date ici");
-        tfDateNow.addActionListener(new java.awt.event.ActionListener() {
+        tfDateSelected.setText("date ici");
+        tfDateSelected.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfDateNowActionPerformed(evt);
+                tfDateSelectedActionPerformed(evt);
             }
         });
 
         jButton1.setText("Entrer");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Date :");
@@ -131,7 +138,7 @@ public class Mprincipal extends javax.swing.JFrame {
                 .addGap(296, 296, 296)
                 .addComponent(jLabel8)
                 .addGap(18, 18, 18)
-                .addComponent(tfDateNow, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tfDateSelected, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -143,7 +150,7 @@ public class Mprincipal extends javax.swing.JFrame {
                 .addComponent(lBienvenue, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfDateNow)
+                    .addComponent(tfDateSelected)
                     .addComponent(jButton1)
                     .addComponent(jLabel8))
                 .addContainerGap())
@@ -186,7 +193,12 @@ public class Mprincipal extends javax.swing.JFrame {
             }
         });
 
-        bHistorique.setText("Historique");
+        bHistorique.setText("Historique obj sem");
+        bHistorique.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bHistoriqueActionPerformed(evt);
+            }
+        });
 
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -205,6 +217,20 @@ public class Mprincipal extends javax.swing.JFrame {
         lPoids.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lPoids.setText("*** poids ***");
 
+        jButton2.setText("Historique obj jour");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("Historique action");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -213,13 +239,15 @@ public class Mprincipal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(bDeconnexion, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
+                    .addComponent(bDeconnexion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(bProfil, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(bHistorique, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lDerniereCo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lPoids, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lPoids, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -230,6 +258,10 @@ public class Mprincipal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lPoids)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton3)
+                .addGap(18, 18, 18)
+                .addComponent(jButton2)
+                .addGap(18, 18, 18)
                 .addComponent(bHistorique)
                 .addGap(18, 18, 18)
                 .addComponent(jButton4)
@@ -309,7 +341,7 @@ public class Mprincipal extends javax.swing.JFrame {
         lTypeAction1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lTypeAction1.setText("Type d'action :");
 
-        cbTypeAction1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbTypeAction1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Marche", "Course" }));
 
         lValeur1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lValeur1.setText("Valeur :");
@@ -363,7 +395,7 @@ public class Mprincipal extends javax.swing.JFrame {
         lTypeAction3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lTypeAction3.setText("Type d'action :");
 
-        cbTypeAction3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbTypeAction3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Marche", "Course" }));
 
         lValeur3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lValeur3.setText("Valeur :");
@@ -422,7 +454,7 @@ public class Mprincipal extends javax.swing.JFrame {
         lTypeAction2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lTypeAction2.setText("Type d'action :");
 
-        cbTypeAction2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbTypeAction2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Marche", "Course" }));
 
         lValeur2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lValeur2.setText("Valeur :");
@@ -512,7 +544,7 @@ public class Mprincipal extends javax.swing.JFrame {
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(2, 2, 2)
                                         .addComponent(txtTaches2, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -525,7 +557,7 @@ public class Mprincipal extends javax.swing.JFrame {
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(txtTaches3, javax.swing.GroupLayout.PREFERRED_SIZE, 463, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(0, 0, Short.MAX_VALUE))))
-                            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 1021, Short.MAX_VALUE)))
+                            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 1051, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(40, 40, 40)
                         .addComponent(txtTaches1, javax.swing.GroupLayout.PREFERRED_SIZE, 629, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -612,24 +644,32 @@ public class Mprincipal extends javax.swing.JFrame {
         panel1.setVisible(false);
         panel2.setVisible(false);
         panel3.setVisible(false);
-        //lPoids.setText();
-        tfDateNow.setText(simpleDate.format(todayDate));
+        lPoids.setText(Cuserdao.getPoids(currentUser));
+        tfDateSelected.setText(simpleDate.format(todayDate));
         try {
             lDerniereCo.setText(Cuserdao.getDateConnect(currentUser));
         } catch (Exception e) {
             JOptionPane.showMessageDialog(rootPane, "Erreur dernière connexion : " + e.getMessage());
         }
         
+        majTaches();
+        
+    }//GEN-LAST:event_formWindowOpened
+    
+    private void majTaches(){
         try {
-            
-            java.sql.Date sqlDate = java.sql.Date.valueOf(tfDateNow.getText());
+            java.sql.Date sqlDate = java.sql.Date.valueOf(tfDateSelected.getText());
             txtTaches1.setText(Ctache.infoTache(Cuserdao.getActionDay(currentUser, sqlDate)));
+            txtTaches2.setText(Ctache.infoTache(Cuserdao.getObjectifDay(currentUser, sqlDate)));
+            txtTaches3.setText(Ctache.infoTache(Cuserdao.getObjectifWeek(currentUser, sqlDate)));
             
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(rootPane, "Erreur Date : " + e.getMessage());
+            JOptionPane.showMessageDialog(rootPane, "Erreur maj des taches : " + e.getMessage());
         }
-    }//GEN-LAST:event_formWindowOpened
-
+    }
+    
+    
+    
     private void bAnnuler3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAnnuler3ActionPerformed
         panel3.setVisible(false);
         bAjouter3.setText("Ajouter objectif");
@@ -660,8 +700,13 @@ public class Mprincipal extends javax.swing.JFrame {
     private void bAjouter1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAjouter1ActionPerformed
 
         if(bAjouter1.getText().equals("Confirmer")){
-            //Cuserdao.insertTache(currentUser, datedeb, datefin, rootPaneCheckingEnabled, typretache, TOP_ALIGNMENT);
-            //txtTaches1.setText(Ctache.infoTache(Cuserdao.getActionDay(currentUser, sqlDate)));
+            try {
+                java.sql.Date sqlDate = java.sql.Date.valueOf(tfDateSelected.getText());
+                Cuserdao.insertTache(currentUser, sqlDate, sqlDate, true, (String)cbTypeAction1.getSelectedItem(), Float.parseFloat(tfValeur1.getText()));
+                majTaches();
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(rootPane, "Erreur insertion de tache : " + e.getMessage());
+            }
             bAjouter1.setText("Ajouter action");
             panel1.setVisible(false);
         }
@@ -672,11 +717,17 @@ public class Mprincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_bAjouter1ActionPerformed
 
     private void bAjouter3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAjouter3ActionPerformed
-        if(bAjouter3.getText().equals("Confirmer")){
-            bAjouter3.setText("Ajouter objectif");
-            //
-            //
-            panel3.setVisible(false);
+
+    if(bAjouter3.getText().equals("Confirmer")){
+        try {
+                java.sql.Date sqlDate = java.sql.Date.valueOf(tfDateSelected.getText());
+                Cuserdao.insertTache(currentUser, sqlDate, sqlDate, false, (String)cbTypeAction3.getSelectedItem(), Float.parseFloat(tfValeur3.getText()));
+                majTaches();
+        } catch (Exception e) {
+                JOptionPane.showMessageDialog(rootPane, "Erreur insertion de tache : " + e.getMessage());
+        }
+        bAjouter3.setText("Ajouter objectif");
+        panel3.setVisible(false);
         }
         else{
             bAjouter3.setText("Confirmer");
@@ -685,11 +736,17 @@ public class Mprincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_bAjouter3ActionPerformed
 
     private void bAjouter2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAjouter2ActionPerformed
-        if(bAjouter2.getText().equals("Confirmer")){
-            bAjouter2.setText("Ajouter objectif");
-            //
-            //
-            panel2.setVisible(false);
+
+    if(bAjouter2.getText().equals("Confirmer")){
+        try {
+                java.sql.Date sqlDate = java.sql.Date.valueOf(tfDateSelected.getText());
+                Cuserdao.insertTache(currentUser, sqlDate, sqlDate, false, (String)cbTypeAction2.getSelectedItem(), Float.parseFloat(tfValeur2.getText()));
+                majTaches();
+        } catch (Exception e) {
+                JOptionPane.showMessageDialog(rootPane, "Erreur insertion de tache : " + e.getMessage());
+        }
+        bAjouter2.setText("Ajouter objectif");
+        panel2.setVisible(false);
         }
         else{
             bAjouter2.setText("Confirmer");
@@ -724,9 +781,31 @@ public class Mprincipal extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_bProfilActionPerformed
 
-    private void tfDateNowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfDateNowActionPerformed
+    private void tfDateSelectedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfDateSelectedActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tfDateNowActionPerformed
+    }//GEN-LAST:event_tfDateSelectedActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        majTaches();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        java.sql.Date sqlDate = java.sql.Date.valueOf(tfDateSelected.getText());
+        Maction maction = new Maction(currentUser, sqlDate);
+        maction.setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        java.sql.Date sqlDate = java.sql.Date.valueOf(tfDateSelected.getText());
+        Mobjectifday mobjectifday = new Mobjectifday(currentUser, sqlDate);
+        mobjectifday.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void bHistoriqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bHistoriqueActionPerformed
+        java.sql.Date sqlDate = java.sql.Date.valueOf(tfDateSelected.getText());
+        Mobjectifweek mobjectifweek = new Mobjectifweek(currentUser, sqlDate);
+        mobjectifweek.setVisible(true);
+    }//GEN-LAST:event_bHistoriqueActionPerformed
 
     /**
      * @param args the command line arguments
@@ -777,6 +856,8 @@ public class Mprincipal extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbTypeAction2;
     private javax.swing.JComboBox<String> cbTypeAction3;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -803,7 +884,7 @@ public class Mprincipal extends javax.swing.JFrame {
     private javax.swing.JPanel panel1;
     private javax.swing.JPanel panel2;
     private javax.swing.JPanel panel3;
-    private javax.swing.JTextField tfDateNow;
+    private javax.swing.JTextField tfDateSelected;
     private javax.swing.JTextField tfValeur1;
     private javax.swing.JTextField tfValeur2;
     private javax.swing.JTextField tfValeur3;
