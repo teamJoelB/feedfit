@@ -267,7 +267,7 @@ public class Cuserdao {
         ResultSet rs = requete.executeQuery();
         
         if (rs.next()){
-            pds = rs.getFloat("userpoids");
+            pds = rs.getFloat("poidsuser");
         }
         return pds;
     }
