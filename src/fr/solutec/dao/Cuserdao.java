@@ -73,25 +73,25 @@ public class Cuserdao {
         String SQL = "UPDATE user SET nomuser = ?, prenomuser = ?, mailuser = ?, mdpuser = ?, tailleuser = ?, ageuser = ?, sexeuser = ? WHERE iduser = ?";
         PreparedStatement requete = connection.prepareStatement(SQL);
         
-        if (!nom.equals(null)) {
+        if (!nom.equals("")) {
             requete.setString(1, nom);
         }
         else {
             requete.setString(1, user.getNomUser());
         }
-        if (!prenom.equals(null)) {
+        if (!prenom.equals("")) {
             requete.setString(2, prenom);
         }
         else {
             requete.setString(1, user.getPrenomUser());
         }
-        if (!mail.equals(null)) {
+        if (!mail.equals("")) {
             requete.setString(3, mail);
         }
         else {
             requete.setString(1, user.getMailUser());
         }
-        if (!mdp.equals(null)) {
+        if (!mdp.equals("")) {
             requete.setString(4, mdp);
         }
         else {
@@ -109,12 +109,7 @@ public class Cuserdao {
         else {
             requete.setFloat(6, age);
         }
-        if (!sexe.equals(null)) {
-            requete.setString(7, sexe);
-        }
-        else{
-            requete.setString(7, user.getSexeUser());
-        }
+        requete.setString(7, user.getSexeUser());
         requete.setInt(8, user.getIdUser());
         
         requete.execute();
