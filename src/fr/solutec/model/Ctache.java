@@ -6,6 +6,7 @@
 package fr.solutec.model;
 
 import fr.solutec.dao.Cuserdao;
+import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
 
@@ -62,7 +63,7 @@ public class Ctache {
     }
     
     
-    public static String infoTache(List<Ctache> listeTache){
+    public static String infoTache(List<Ctache> listeTache) throws SQLException{
         String data = "<html>";
         for (Ctache ctache : listeTache) {
             data += Cuserdao.getTypeTache(ctache) + " " + ctache.getValTache() + "<br>";
