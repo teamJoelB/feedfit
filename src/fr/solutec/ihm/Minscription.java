@@ -11,6 +11,7 @@ import fr.solutec.model.Cuser;
 import static java.awt.Color.RED;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.regex.Pattern;
 import javafx.scene.paint.Color;
 import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
@@ -209,7 +210,12 @@ public class Minscription extends javax.swing.JFrame {
     }//GEN-LAST:event_bRevenirConnexionActionPerformed
 
     private void bInscriptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bInscriptionActionPerformed
-        
+        try {
+            if(!(Pattern.matches("^[a-zA-Z0-9]+[@]{1}+[a-zA-Z0-9]+[.]{1}+[a-zA-Z0-9]+$", tfMail.getText())))
+                JOptionPane.showMessageDialog(rootPane, "Attention, adresse mail invalide.");
+        } catch (Exception e) {
+            
+        }
         try {
             if(tfPseudo.getText().equals("") || tfNom.getText().equals("") || tfPrenom.getText().equals("") || tfMail.getText().equals("") || tfMDP.getText().equals("")){
                 tfPseudo.setBorder(BorderFactory.createLineBorder(RED));
