@@ -67,25 +67,25 @@ public class Minscription extends javax.swing.JFrame {
         jLabel1.setText("----    Inscription    ----");
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel2.setText("Nom :");
+        jLabel2.setText("Nom* :");
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel3.setText("Prénom :");
+        jLabel3.setText("Prénom* :");
 
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel4.setText("Sexe :");
+        jLabel4.setText("Sexe* :");
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel5.setText("Adresse email :");
+        jLabel5.setText("Adresse email* :");
 
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel6.setText("Mot de passe :");
+        jLabel6.setText("Mot de passe* :");
 
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel7.setText("Poids :");
+        jLabel7.setText("Poids (kg) :");
 
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel8.setText("Taille :");
+        jLabel8.setText("Taille (cm) :");
 
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel9.setText("Âge :");
@@ -106,7 +106,7 @@ public class Minscription extends javax.swing.JFrame {
             }
         });
 
-        jLabel10.setText("Pseudo :");
+        jLabel10.setText("Pseudo* :");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
