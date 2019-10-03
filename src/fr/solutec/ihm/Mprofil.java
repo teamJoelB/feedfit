@@ -258,7 +258,8 @@ public class Mprofil extends javax.swing.JFrame {
             Cuserdao.majUser(currentUser, tfNom.getText(), tfPrenom.getText(), tfMail.getText(), tfMDP.getText(),
                     Float.parseFloat(tfTaille.getText()), Float.parseFloat(tfAge.getText()), String.valueOf(cbSexe.getSelectedItem()));
             JOptionPane.showMessageDialog(rootPane, "Utilisateur modifié !");
-            Mprincipal mprincipal = new Mprincipal(currentUser);
+            
+            Mprincipal mprincipal = new Mprincipal(Cuserdao.getByPseudoPass(currentUser.getPseudoUser(), tfMDP.getText()));
             mprincipal.setVisible(true);
             this.setVisible(false);
 
