@@ -232,11 +232,11 @@ public class Minscription extends javax.swing.JFrame {
                 newUser.setPoidsUser(Float.parseFloat(tfPoids.getText()));
                 newUser.setTailleUser(Float.parseFloat(tfTaille.getText()));
                 Cuserdao.insertUser(newUser);
-                
+                newUser = Cuserdao.getByPseudoPass(tfPseudo.getText(), tfMDP.getText());
                 Date todayDate = new Date();
                 SimpleDateFormat simpleDate = new SimpleDateFormat("yyyy-MM-dd");
                 java.sql.Date sqlDate = java.sql.Date.valueOf(simpleDate.format(todayDate));
-
+                System.out.println(newUser.getIdUser());
                 Cuserdao.insertPoids(newUser, sqlDate, newUser.getPoidsUser());
                 
                 JOptionPane.showMessageDialog(rootPane, "Utilisateur créé !");
