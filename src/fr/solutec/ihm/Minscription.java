@@ -228,9 +228,13 @@ public class Minscription extends javax.swing.JFrame {
                 newUser.setMailUser(tfMail.getText());
                 newUser.setMdpUser(tfMDP.getText());
                 newUser.setSexeUser(String.valueOf(cbSexe.getSelectedItem()));
-                newUser.setAgeUser(Float.parseFloat(tfAge.getText()));
-                newUser.setPoidsUser(Float.parseFloat(tfPoids.getText()));
-                newUser.setTailleUser(Float.parseFloat(tfTaille.getText()));
+                if(!tfAge.getText().equals(""))
+                    newUser.setAgeUser(Float.parseFloat(tfAge.getText()));
+                if(!tfPoids.getText().equals(""))
+                    newUser.setPoidsUser(Float.parseFloat(tfPoids.getText()));
+                if(!tfTaille.getText().equals(""))
+                    newUser.setTailleUser(Float.parseFloat(tfTaille.getText()));
+                
                 Cuserdao.insertUser(newUser);
                 newUser = Cuserdao.getByPseudoPass(tfPseudo.getText(), tfMDP.getText());
                 Date todayDate = new Date();
